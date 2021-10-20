@@ -16,7 +16,7 @@ const refs = {
 refs.menu.insertAdjacentHTML('beforeend', cardItemMenu);
 
 refs.checkBox.addEventListener('change', themeEvent);
-
+refs.bodyListener.classList.add(Theme.LIGHT)
 checkedEvtListener()
 
 function themeEvent() {
@@ -24,12 +24,12 @@ function themeEvent() {
     if (check === true) {
         refs.bodyListener.classList.remove(Theme.LIGHT);
         refs.bodyListener.classList.add(Theme.DARK);
+        localStorage.setItem('theme', check)
+        return
     }
-    if (check !== true) {
-        refs.bodyListener.classList.remove(Theme.DARK);
-        refs.bodyListener.classList.add(Theme.LIGHT);
-    }
-   localStorage.setItem('theme', check)
+     refs.bodyListener.classList.remove(Theme.DARK);
+     refs.bodyListener.classList.add(Theme.LIGHT);
+     localStorage.setItem('theme', check)
    
 };
 
